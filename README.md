@@ -1,2 +1,11 @@
 # UG-DOS
- was a py class report,now open source to anyone
+## CN/中文
+这是一个以前在2020年网课时期用py写的伪DOS的小项目
+
+*~~最初版本甚至是用bat做的（（~~*
+
+现在开学时期仍在抽空维护并尝试增加新功能。。开源给任何人，遵循GPLv3协议。
+
+-Cube
+
+written on 2025
