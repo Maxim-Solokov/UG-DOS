@@ -70,10 +70,30 @@ def main():
             command_line=cm_exit(command_line)
             if command_line=="confirm":
                 quit()
-            print("Are you really wanna exit UG-DOS? If yes, please use the command 'exit confirm'. you may destory your unsave data.")
+            print("[WARN] Are you really wanna exit UG-DOS? If yes, please use the command 'exit confirm'. you may destory your unsave data.")
             return
+        if judge(command_line, "help"):
+            print("[INFO] Help Page")
+            print("[INFO] The 'rewritten' UG-DOS is currently in the 'Early Access' phase.")
+            print("[INFO] The features available at this stage do not represent the full functionality of the official version.")
+            print("[INFO] The list of features may be subject to additions or removals.") 
+            print("[INFO] The currently supported commands are as follows:")
+            print("[INFO] help - Displays the help page.")
+            print("[INFO] echo ('string') - Returns the content within the string.")
+            print("[INFO] exit (confirm) - Exits UG-DOS.")
+            print("[INFO] - -")  
+            print("[INFO] The meanings of the bracketed content you may see in the output messages are as follows:")  
+            print("[INFO] '[ERRR]' - Basic errors, usually occurring due to improper operations.")
+            print("[INFO] For critical errors, please refer to '[FTER]'.")
+            print("[INFO] '[INFO]' - As seen on this page, this indicates information or reminders. Its appearance is normal.")
+            print("[INFO] '[WARN]' - Warnings for sensitive operations, usually appearing during critical actions. Please proceed with caution when performing related operations.")
+            print("[INFO] '[FTER]' - Critical termination. Typically occurs during crashes or module failures.")
+            print("[INFO] The appearance of this message indicates that the system is no longer operational. Consider restarting the system.")
+            print("[INFO] - END - ")
+            print("[INFO] Note: This page was written on March 9, 2025.")
+            print("[INFO] - Cube")
         else:
-            print("'"+command_line+"' isn't a executable files, an avaliable command line or a UG-DOS Module Code.")
+            print("[ERRR] '"+command_line+"' isn't a executable files, an avaliable command line or a UG-DOS Module Code.")
 
 
 configure=False
@@ -82,7 +102,7 @@ used=os.path.exists('./Users')
 used_2=os.path.exists('./Users/root')
 if used==False:
     configure=False
-    print("Loading UG-DOS Library... Please Wait")
+    print("[INFO] Loading UG-DOS Library... Please Wait")
     os.mkdir('./Users/')
     
     used_2=os.path.exists('./Users/root')
@@ -97,9 +117,9 @@ if used==False:
                 pwa=input("Please enter your Password:")
                 pwb=input("Please enter your Password again:")
                 if pwa==pwb:
-                     break
+                    break
                 else:
-                     print("ERR:The passwords entered don't match")
+                     print("[ERRR] The passwords entered don't match")
         config=open('./Users/'+create_name+'/userlib.txt', "w")
         config.close()
         write=open('./Users/'+create_name+'/userlib.txt', "w")
@@ -107,7 +127,7 @@ if used==False:
         write.write(pwsec)
         write.close()
     
-    print("Congratulations! Your's Account is ready to use!")
+    print("[INFO] Congratulations! Your's Account is ready to use!")
     configure=True
 
 logged=False
@@ -123,11 +143,11 @@ while logged==False:
             logged=True
             break
         else:
-            print("ERR:Password incorrect.")
+            print("[ERRR] Password incorrect.")
     else:
-        print("ERR:Username Don't usable.")
+        print("[ERRR] Username Don't usable.")
 
-print('Welcome,'+account)
+print('[INFO] Welcome,'+account)
 
 while running==True:
     main()
