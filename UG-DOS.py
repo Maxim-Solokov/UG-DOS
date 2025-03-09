@@ -92,6 +92,7 @@ def main():
             print("[INFO] - END - ")
             print("[INFO] Note: This page was written on March 9, 2025.")
             print("[INFO] - Cube")
+        
         else:
             print("[ERRR] '"+command_line+"' isn't a executable files, an avaliable command line or a UG-DOS Module Code.")
 
@@ -107,10 +108,10 @@ if used==False:
     
     used_2=os.path.exists('./Users/root')
     if used_2==False:
-        os.mkdir('./Users/root')
+        os.mkdir('./Users/user-root')
         print("Welcome to use the UG-DOS!")
         create_name=input("Please enter your Username:")
-        os.mkdir('./Users/'+create_name)
+        os.mkdir('./Users/user-'+create_name)
         pwa=1
         pwb=2
         while pwa!=pwb:
@@ -120,9 +121,9 @@ if used==False:
                     break
                 else:
                      print("[ERRR] The passwords entered don't match")
-        config=open('./Users/'+create_name+'/userlib.txt', "w")
+        config=open('./Users/user-'+create_name+'/userlib.txt', "w")
         config.close()
-        write=open('./Users/'+create_name+'/userlib.txt', "w")
+        write=open('./Users/user-'+create_name+'/userlib.txt', "w")
         pwsec=md5_encrypt(pwb)
         write.write(pwsec)
         write.close()
@@ -131,11 +132,12 @@ if used==False:
     configure=True
 
 logged=False
+
 while logged==False:
     account=input("Username:")
-    ac_check=os.path.exists('./Users/'+account)
+    ac_check=os.path.exists('./Users/user-'+account)
     if ac_check==True:
-        write=open('./Users/'+account+'/userlib.txt', "r")
+        write=open('./Users/user-'+account+'/userlib.txt', "r")
         passwd=input('Password:')
         passwd_sec=md5_encrypt(passwd)
         passwd_2=write.read()
@@ -146,8 +148,8 @@ while logged==False:
             print("[ERRR] Password incorrect.")
     else:
         print("[ERRR] Username Don't usable.")
-
+    
 print('[INFO] Welcome,'+account)
 
-while running==True:
+while logged==True:
     main()
